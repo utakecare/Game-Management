@@ -1,10 +1,9 @@
 package Main.model;
 
-import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+//import jakarta.persistence.*;
+import lombok.*;
+
+import javax.persistence.*;
 
 @Getter
 @Setter
@@ -12,6 +11,7 @@ import lombok.Setter;
 @Table(name = "users")
 @AllArgsConstructor
 @NoArgsConstructor
+@EqualsAndHashCode(of = {"login"})
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
