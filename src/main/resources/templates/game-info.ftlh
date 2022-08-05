@@ -1,0 +1,43 @@
+<#import "blocks/template.ftlh" as t>
+<@t.template user>
+    <div id="myCarousel" class="carousel slide" data-ride="carousel">
+
+    </div>
+    <hr>
+    <table class="table table-dark table-hover">
+        <thead>
+        <tr>
+            <th scope="col">Дата</th>
+            <th scope="col">Время</th>
+            <th scope="col">Герой</th>
+            <th scope="col">Результат</th>
+            <th scope="col">Мой вклад</th>
+            <th scope="col">Вклад команды</th>
+            <th scope="col">Удовольствие</th>
+            <th scope="col">Комментарий к игре</th>
+
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>${game.date}</td>
+            <td>${game.time}</td>
+            <td>${game.hero}</td>
+            <td>${game.result}</td>
+            <td>${game.selfRate}</td>
+            <td>${game.teamRate}</td>
+            <td>${game.enjoyment}</td>
+            <td>${game.comment}</td>
+
+        </tr>
+        </tbody>
+    </table>
+
+    <hr>
+    <p style="text-align: center">
+        <a href="/user/${whoseGame.id}">
+            <img src="/static/images/avatar1.png" alt="mdo" width="32" height="32" class="rounded-circle"> ${whoseGame.name}
+        </a>
+    </p>
+
+</@t.template>

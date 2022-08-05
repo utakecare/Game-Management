@@ -8,8 +8,8 @@
         <version>2.5.6</version>
         <relativePath/>
     </parent>
-    <groupId>com.example</groupId>
-    <artifactId>buysell</artifactId>
+    <groupId>firstTry</groupId>
+    <artifactId>AccountingService</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <properties>
         <java.version>8</java.version>
@@ -54,6 +54,11 @@
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
         </dependency>
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-core</artifactId>
+        </dependency>
+
     </dependencies>
 
 </project>
