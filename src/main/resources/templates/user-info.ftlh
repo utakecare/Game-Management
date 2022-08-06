@@ -3,7 +3,7 @@
     <h1 style="text-align: center">Информация о пользователе</h1>
     <hr>
     <div style="text-align: center">
-        <img src="/static/images/avatar1.png"
+        <img src="/static/images/${user.avatar}"
              style="border:2px solid black; border-radius: 20px" height="120" alt="">
         <br>
         <br>

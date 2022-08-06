@@ -4,17 +4,23 @@
     <hr>
     <br>
     <div style="text-align: center">
-        <img src="/static/images/avatar${user.id}.png"
+        <#if user.avatar != "avatar.png">
+        <img src="/static/images/${user.avatar}"
              style="border:2px solid black; border-radius: 20px" height="120" alt="">
+            <#else>
+                <img src="/static/images/${user.avatar}"
+                     style="border:0 solid black; border-radius: 0;" height="120" alt="">
+        </#if>
         <form method="post" enctype="multipart/form-data">
+            <div class="custom-file">
             <input type="file" name="file">
             <input type="hidden" name="_csrf" value="${_csrf.token}"/>
-            <input type = "submit" value = "yes" />
+            <button type="submit" style="width: 10%" class="btn btn-dark">Добавить</button>
+            </div>
         </form>
-<#--        <form action="/profile" method="post" enctype="multipart/form-data" modelAttribute="user">-->
-<#--            <input type="file" name="imgFile">-->
-<#--            <input type = "submit" value = "yes" />-->
-<#--        </form>-->
+        <form method="post" enctype="multipart/form-data">
+
+        </form>
         <br>
         <br>
         <h2>${user.name}</h2>

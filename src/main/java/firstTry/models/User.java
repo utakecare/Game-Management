@@ -2,10 +2,12 @@ package firstTry.models;
 
 import firstTry.models.enums.Role;
 import lombok.Data;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.*;
+import java.io.File;
 import java.time.LocalDate;
 import java.util.*;
 
@@ -19,9 +21,6 @@ public class User implements UserDetails {
     @Column(unique = true, updatable = false)
     private String name;
     private String password;
-    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    @JoinColumn
-    private Images images;
     @ElementCollection(targetClass = Role.class, fetch = FetchType.EAGER)
     @CollectionTable(name = "user_roles",
             joinColumns = @JoinColumn(name = "user_id"))

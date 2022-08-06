@@ -36,7 +36,7 @@
     <hr>
     <p style="text-align: center">
         <a href="/user/${whoseGame.id}">
-            <img src="/static/images/avatar1.png" alt="mdo" width="32" height="32" class="rounded-circle"> ${whoseGame.name}
+            <img src="/static/images/${user.avatar}" alt="mdo" width="32" height="32" class="rounded-circle"> ${whoseGame.name}
         </a>
     </p>
 

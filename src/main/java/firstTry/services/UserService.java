@@ -5,6 +5,7 @@ import firstTry.models.enums.Role;
 import firstTry.repositories.UserRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
@@ -21,6 +22,8 @@ import java.util.stream.Collectors;
 public class UserService {
     private final UserRepository userRepository;
     private final PasswordEncoder passwordEncoder;
+    @Value("${upload.path}")
+    private String uploadPath;
 
     public boolean createUser(User user) {
         String userName = user.getName();
@@ -29,6 +32,7 @@ public class UserService {
         }
         user.getRoles().add(Role.ROLE_USER);
         user.setPassword(passwordEncoder.encode(user.getPassword()));
+        user.setAvatar("avatar.png");
         log.info("Saving new user: {}", userName);
         userRepository.save(user);
         return true;
@@ -54,5 +58,24 @@ public class UserService {
             }
         }
         userRepository.save(user);
+    }
+    public void setUserAvatar(Principal principal, MultipartFile file) throws IOException {
+        if(file != null) {
+            File uploadDir = new File(uploadPath);
+            if(!uploadDir.exists()) {
+                uploadDir.mkdir();
+            }
+            String uuidFile = UUID.randomUUID().toString();
+            String resultFileName = uuidFile + "." + file.getOriginalFilename();
+            file.transferTo(new File(uploadPath + "/" + resultFileName));
+            getUserByPrincipal(principal).setAvatar(resultFileName);
+            userRepository.save(getUserByPrincipal(principal));
+        }
+    }
+    public void isAvatarExist(User user){
+        File file = new File(uploadPath + "/" + user.getAvatar());
+        if(!file.exists()){
+            user.setAvatar("avatar.png");
+        }
     }
 }

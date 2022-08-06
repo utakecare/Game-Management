@@ -23,7 +23,7 @@
             <#if user.name??>
                 <div class="dropdown text-end">
                     <a href="/profile">
-                        <img src="/static/images/avatar1.png" alt="mdo"
+                        <img src="/static/images/${user.avatar}" alt="mdo"
                              width="32" height="32" class="rounded-circle">
                     </a>
                 </div>
