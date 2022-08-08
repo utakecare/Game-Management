@@ -24,9 +24,9 @@
             <td>${game.time}</td>
             <td>${game.hero}</td>
             <td>${game.result}</td>
-            <td>${game.selfRate}</td>
-            <td>${game.teamRate}</td>
-            <td>${game.enjoyment}</td>
+            <td>${game.outputValue(game.selfRate)}</td>
+            <td>${game.outputValue(game.teamRate)}</td>
+            <td>${game.outputValue(game.enjoyment)}</td>
             <td>${game.comment}</td>
 
         </tr>

@@ -38,7 +38,7 @@ public class UserService {
         return true;
     }
 
-    public List<User> list() {
+    public List<User> listAllUsers() {
         return userRepository.findAll();
     }
 
@@ -59,10 +59,11 @@ public class UserService {
         }
         userRepository.save(user);
     }
+
     public void setUserAvatar(Principal principal, MultipartFile file) throws IOException {
-        if(file != null) {
+        if (file != null) {
             File uploadDir = new File(uploadPath);
-            if(!uploadDir.exists()) {
+            if (!uploadDir.exists()) {
                 uploadDir.mkdir();
             }
             String uuidFile = UUID.randomUUID().toString();
@@ -72,10 +73,9 @@ public class UserService {
             userRepository.save(getUserByPrincipal(principal));
         }
     }
-    public void isAvatarExist(User user){
+
+    public boolean isAvatarExist(User user) {
         File file = new File(uploadPath + "/" + user.getAvatar());
-        if(!file.exists()){
-            user.setAvatar("avatar.png");
-        }
+        return file.exists();
     }
 }

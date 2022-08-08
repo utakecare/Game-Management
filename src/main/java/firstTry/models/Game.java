@@ -30,4 +30,19 @@ public class Game {
         date = LocalDate.now();
         time = LocalTime.now();
     }
+    public String outputValue(int value) {
+        switch (value) {
+            case 1:
+                return "Ужасно";
+            case 2:
+                return "Плохо";
+            case 3:
+                return "Нормально";
+            case 4:
+                return "Хорошо";
+            case 5:
+                return "Отлично";
+        }
+        return "Проверьте базу данных";
+    }
 }

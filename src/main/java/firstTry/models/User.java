@@ -2,12 +2,10 @@ package firstTry.models;
 
 import firstTry.models.enums.Role;
 import lombok.Data;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.*;
-import java.io.File;
 import java.time.LocalDate;
 import java.util.*;
 
@@ -32,10 +30,6 @@ public class User implements UserDetails {
 
     private String avatar;
 
-    public void addGameToUser(Game game){
-        game.setUser(this);
-        games.add(game);
-    }
     @PrePersist
     private void init() {
         dateOfCreated = LocalDate.now();

@@ -23,7 +23,7 @@ public class AdminController {
 
     @GetMapping("/admin")
     public String admin(Model model, Principal principal) {
-        model.addAttribute("users", userService.list());
+        model.addAttribute("users", userService.listAllUsers());
         model.addAttribute("user", userService.getUserByPrincipal(principal));
         return "admin";
     }

@@ -1,6 +1,7 @@
 package firstTry.controllers;
 
 import firstTry.models.User;
+import firstTry.services.GameService;
 import firstTry.services.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
@@ -18,6 +19,7 @@ import java.security.Principal;
 @RequiredArgsConstructor
 public class UserController {
     private final UserService userService;
+    private final GameService gameService;
 
     @GetMapping("/login")
     public String login(Principal principal, Model model) {
@@ -45,6 +47,8 @@ public class UserController {
     public String profile(Principal principal, Model model) {
         User user = userService.getUserByPrincipal(principal);
         model.addAttribute("user", user);
+        model.addAttribute("winRate", gameService.winRate(user));
+        model.addAttribute("avatarExist", userService.isAvatarExist(user));
         return "profile";
     }
 
@@ -54,7 +58,7 @@ public class UserController {
         userService.setUserAvatar(principal, file);
         User user = userService.getUserByPrincipal(principal);
         model.addAttribute("user", user);
-        return "profile";
+        return "redirect:/profile";
     }
 
     @GetMapping("/user/{user}")
@@ -62,6 +66,7 @@ public class UserController {
         model.addAttribute("user", user);
         model.addAttribute("userByPrincipal", userService.getUserByPrincipal(principal));
         model.addAttribute("games", user.getGames());
+        model.addAttribute("avatarExist", userService.isAvatarExist(user));
         return "user-info";
     }
 }

@@ -3,7 +3,9 @@
     <h1 style="text-align: center">Личный кабинет</h1>
     <hr>
     <br>
+<#--    ${user.isAvatarExist(user)}-->
     <div style="text-align: center">
+        <#if avatarExist>
         <#if user.avatar != "avatar.png">
         <img src="/static/images/${user.avatar}"
              style="border:2px solid black; border-radius: 20px" height="120" alt="">
@@ -11,20 +13,23 @@
                 <img src="/static/images/${user.avatar}"
                      style="border:0 solid black; border-radius: 0;" height="120" alt="">
         </#if>
-        <form method="post" enctype="multipart/form-data">
+            <#else>
+                <img src="/static/images/${user.avatar}"
+                     style="border:0 solid black; border-radius: 0;" height="120" alt="">
+        </#if>
+            <form method="post" enctype="multipart/form-data" class="">
             <div class="custom-file">
             <input type="file" name="file">
             <input type="hidden" name="_csrf" value="${_csrf.token}"/>
             <button type="submit" style="width: 10%" class="btn btn-dark">Добавить</button>
             </div>
-        </form>
-        <form method="post" enctype="multipart/form-data">
+            </form>
 
-        </form>
         <br>
         <br>
         <h2>${user.name}</h2>
         <br>
+        <h2>${winRate}%</h2>
         Дата создания: <b>${user.getDateOfCreated()}</b>
         <br>
         <br>

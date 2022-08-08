@@ -4,11 +4,12 @@
     <form method="get" action="/">
         <div class="form-row">
             <div class="form-group col-md-2">
-                <label for="hero">Имя пользователя</label>
-                <select id="hero" class="form-control">
-                    <option value="">Введите имя</option>
-                    <option value="pudge">Pudge</option>
-                    <option value="nepudge">nePudge</option>
+                <label for="searchUser">Имя пользователя</label>
+                <select name="searchUser" id="searchUser" <#if searchUser??>value="${searchUser}"</#if> class="form-control">
+                    <option value="">Показать Всех</option>
+                    <#list users as user>
+                            <option value="${user.id}">${user.name}</option>
+                    </#list>
                 </select>
 
             </div>

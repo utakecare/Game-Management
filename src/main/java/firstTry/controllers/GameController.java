@@ -3,6 +3,7 @@ package firstTry.controllers;
 import firstTry.models.Game;
 import firstTry.models.User;
 import firstTry.services.GameService;
+import firstTry.services.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -17,18 +18,22 @@ import java.security.Principal;
 @RequiredArgsConstructor
 public class GameController {
     private final GameService gameService;
+    private final UserService userService;
 
     @GetMapping("/")
-    public String games(@RequestParam(name = "searchWord", required = false)
-                            String hero, Principal principal, Model model) {
-        model.addAttribute("games", gameService.listGames(hero));
+    public String games(@RequestParam(name = "searchWord", required = false) String hero,
+                        @RequestParam(name = "searchUser", required = false) Long id,
+                        Principal principal, Model model) {
+        model.addAttribute("games", gameService.listGamesByHeroAndUserId(id,hero));
         model.addAttribute("user", gameService.getUserByPrincipal(principal));
         model.addAttribute("searchWord", hero);
+        model.addAttribute("users", userService.listAllUsers());
+        model.addAttribute("searchUser", id);
         return "games";
     }
 
     @GetMapping("/my/games")
-    public String userProducts(Principal principal, Model model) {
+    public String userGames(Principal principal, Model model) {
         User user = gameService.getUserByPrincipal(principal);
         model.addAttribute("user", user);
         model.addAttribute("games", user.getGames());
