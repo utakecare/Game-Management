@@ -11,8 +11,7 @@
                  <img src="/static/images/avatar.png"
                       style="border:0 solid black; border-radius: 20px" height="120" alt="">
         </#if>
-
-            <form method="post" enctype="multipart/form-data" class="">
+        <form method="post" enctype="multipart/form-data" class="">
             <div class="custom-file">
             <input type="file" name="file">
             <input type="hidden" name="_csrf" value="${_csrf.token}"/>
@@ -24,7 +23,7 @@
         <br>
         <h2>${user.name}</h2>
         <br>
-        <h2>${winRate}%</h2>
+        <h3>WinRate: ${winRate}%</h3>
         Дата создания: <b>${user.getDateOfCreated()}</b>
         <br>
         <br>
