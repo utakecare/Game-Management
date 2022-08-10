@@ -6,6 +6,7 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.*;
+import java.io.File;
 import java.time.LocalDate;
 import java.util.*;
 
@@ -29,6 +30,15 @@ public class User implements UserDetails {
     private List<Game> games = new ArrayList<>();
 
     private String avatar;
+
+    public boolean isAvatarExist(User user) {
+        File file = new File("F:/takecare/job/Projects/Accounting/src/main/resources/static/images/" +
+                user.getAvatar());
+        return file.exists();
+    }
+    public void isAvatarExist() {
+
+    }
 
     @PrePersist
     private void init() {

@@ -23,9 +23,15 @@
             <#if user.name??>
                 <div class="dropdown text-end">
                     <a href="/profile">
+                        <#if user.isAvatarExist(user)>
                         <img src="/static/images/${user.avatar}" alt="mdo"
                              width="32" height="32" class="rounded-circle">
+                             <#else>
+                                <img src="/static/images/avatar.png" alt="mdo"
+                                 width="32" height="32" class="rounded-circle">
+                        </#if>
                     </a>
+
                 </div>
             <#else>
                 <button class="btn btn-light my-2 my-sm-0" type="button"

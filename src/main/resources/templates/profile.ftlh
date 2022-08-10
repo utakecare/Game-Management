@@ -3,20 +3,15 @@
     <h1 style="text-align: center">Личный кабинет</h1>
     <hr>
     <br>
-<#--    ${user.isAvatarExist(user)}-->
     <div style="text-align: center">
         <#if avatarExist>
-        <#if user.avatar != "avatar.png">
         <img src="/static/images/${user.avatar}"
              style="border:2px solid black; border-radius: 20px" height="120" alt="">
-            <#else>
-                <img src="/static/images/${user.avatar}"
-                     style="border:0 solid black; border-radius: 0;" height="120" alt="">
+             <#else>
+                 <img src="/static/images/avatar.png"
+                      style="border:0 solid black; border-radius: 20px" height="120" alt="">
         </#if>
-            <#else>
-                <img src="/static/images/${user.avatar}"
-                     style="border:0 solid black; border-radius: 0;" height="120" alt="">
-        </#if>
+
             <form method="post" enctype="multipart/form-data" class="">
             <div class="custom-file">
             <input type="file" name="file">

@@ -76,6 +76,6 @@ public class UserService {
 
     public boolean isAvatarExist(User user) {
         File file = new File(uploadPath + "/" + user.getAvatar());
-        return file.exists();
+        return file.exists() && !file.getName().equals("avatar.png");
     }
 }

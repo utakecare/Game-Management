@@ -36,7 +36,11 @@
     <hr>
     <p style="text-align: center">
         <a href="/user/${whoseGame.id}">
-            <img src="/static/images/${user.avatar}" alt="mdo" width="32" height="32" class="rounded-circle"> ${whoseGame.name}
+            <#if whoseGame.isAvatarExist(whoseGame)>
+            <img src="/static/images/${whoseGame.avatar}" alt="mdo" width="32" height="32" class="rounded-circle"> ${whoseGame.name}
+            <#else>
+                <img src="/static/images/avatar.png" alt="mdo" width="32" height="32" class="rounded-circle"> ${whoseGame.name}
+            </#if>
         </a>
     </p>
 

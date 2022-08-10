@@ -6,10 +6,11 @@
         <#if avatarExist>
             <img src="/static/images/${user.avatar}"
                  style="border:2px solid black; border-radius: 20px" height="120" alt="">
-            <#else>
-                <img src="/static/images/avatar.png"
-                     style="border:0 solid black; border-radius: 20px" height="120" alt="">
+                 <#else>
+                     <img src="/static/images/avatar.png"
+                          style="border:0 solid black; border-radius: 20px" height="120" alt="">
         </#if>
+
         <br>
         <br>
         <h2>${user.name}</h2>
