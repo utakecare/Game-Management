@@ -9,7 +9,7 @@
         <relativePath/>
     </parent>
     <groupId>firstTry</groupId>
-    <artifactId>AccountingService</artifactId>
+    <artifactId>GameManagement</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <properties>
         <java.version>8</java.version>

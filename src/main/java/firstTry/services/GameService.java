@@ -43,7 +43,7 @@ public class GameService {
 
     public void saveGame(Principal principal, Game game) {
         game.setUser(getUserByPrincipal(principal));
-        log.info("Новая игра добавлена в базу. Id: {}; Автор: {}", game.getId(), game.getUser().getName());
+        log.info("Новая игра добавлена в базу. Id: {}; Автор: {}", game.getGameId(), game.getUser().getName());
         gameRepository.save(game);
     }
 

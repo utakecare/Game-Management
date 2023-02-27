@@ -50,6 +50,7 @@ public class GameController {
         model.addAttribute("user", gameService.getUserByPrincipal(principal));
         model.addAttribute("game", game);
         model.addAttribute("whoseGame", game.getUser());
+        model.addAttribute("avatarExist", userService.isAvatarExist(game.getUser()));
         return "game-info";
     }
     @PostMapping("/game/delete/{id}")

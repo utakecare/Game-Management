@@ -65,7 +65,7 @@
     </div>
     <div class="card-deck">
         <#list games as game>
-            <a href="/game/${game.id}" class="game-link">
+            <a href="/game/${game.gameId}" class="game-link">
                 <div class="card text-white bg-dark my-3 game">
 
                     <div class="card-body" >
@@ -74,7 +74,7 @@
                         <p class="card-subtitle">${game.date}</p>
                     </div>
                     <div class="card-footer">
-                        <form action="/game/delete/${game.id}" method="post">
+                        <form action="/game/delete/${game.gameId}" method="post">
                             <input type="hidden" name="_csrf" value="${_csrf.token}"/>
                             <button type="submit" class="btn btn-danger m-3">
                                 Удалить

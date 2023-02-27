@@ -32,13 +32,11 @@ public class User implements UserDetails {
     private String avatar;
 
     public boolean isAvatarExist(User user) {
-        File file = new File("F:/takecare/job/Projects/Accounting/src/main/resources/static/images/" +
-                user.getAvatar());
-        return file.exists();
+        File file = new File("/Users/utakecare/Job/gitClone/myGitHub/Game-Management/storage" +
+                "/" + user.getAvatar());
+        return file.exists() && !file.getName().equals("avatar.png");
     }
-    public void isAvatarExist() {
 
-    }
 
     @PrePersist
     private void init() {

@@ -24,7 +24,7 @@
     <hr>
     <div class="card-deck">
         <#list games as game>
-            <a href="/game/${game.id}" class="game-link">
+            <a href="/game/${game.gameId}" class="game-link">
                 <div class="card text-white bg-dark my-3 game">
 
                     <div class="card-body" >

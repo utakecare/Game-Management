@@ -4,7 +4,7 @@
     <hr>
     <div style="text-align: center">
         <#if avatarExist>
-            <img src="/static/images/${user.avatar}"
+            <img src="/storage/${user.getAvatar()}"
                  style="border:2px solid black; border-radius: 20px" height="120" alt="">
                  <#else>
                      <img src="/static/images/avatar.png"
@@ -22,7 +22,7 @@
     <br>
     <div class="card-columns">
         <#list games as game>
-            <a href="/game/${game.id}" class="game-link">
+            <a href="/game/${game.gameId}" class="game-link">
                 <div class="card text-white bg-dark my-3 game">
                     <div class="card-body">
                         <h5 class="card-title">${game.hero}</h5>

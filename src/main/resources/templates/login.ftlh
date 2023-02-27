@@ -21,5 +21,5 @@
         <button type="submit" style="width: 100%" class="btn btn-dark">Войти</button>
     </form>
     <hr>
-    <h2>Нет аккаунта AccountingService? <a href="/registration">Зарегистрируйся!</a></h2>
+    <h2>Нет аккаунта GameManagement? <a href="/registration">Зарегистрируйся!</a></h2>
 </@t.template>

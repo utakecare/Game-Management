@@ -12,24 +12,24 @@
               integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn"
               crossorigin="anonymous">
 
-        <title>AccountingService</title>
+        <title>GameManagement</title>
     </head>
     <body>
     <nav class="navbar navbar-dark bg-dark">
         <div class="container-fluid">
             <a href="/">
-                <span class="navbar-brand mb-0 h1">AccountingService</span>
+                <span class="navbar-brand mb-0 h1">GameManagement</span>
             </a>
             <#if user.name??>
                 <div class="dropdown text-end">
                     <a href="/profile">
-                        <#if user.isAvatarExist(user)>
-                        <img src="/static/images/${user.avatar}" alt="mdo"
+                         <#if user.isAvatarExist(user)>
+                        <img src="/storage/${user.getAvatar()}" alt="mdo"
                              width="32" height="32" class="rounded-circle">
                              <#else>
-                                <img src="/static/images/avatar.png" alt="mdo"
-                                 width="32" height="32" class="rounded-circle">
-                        </#if>
+                              <img src="/static/images/avatar.png" alt="mdo"
+                             width="32" height="32" class="rounded-circle">
+                         </#if>
                     </a>
 
                 </div>

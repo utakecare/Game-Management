@@ -68,10 +68,16 @@ public class UserService {
             }
             String uuidFile = UUID.randomUUID().toString();
             String resultFileName = uuidFile + "." + file.getOriginalFilename();
-            file.transferTo(new File(uploadPath + "/" + resultFileName));
-            getUserByPrincipal(principal).setAvatar(resultFileName);
-            userRepository.save(getUserByPrincipal(principal));
+            if (resultFileName.substring(resultFileName.indexOf('.')).length() > 1) {
+                file.transferTo(new File(uploadPath + "/" + resultFileName));
+                getUserByPrincipal(principal).setAvatar(resultFileName);
+                userRepository.save(getUserByPrincipal(principal));
+            } else {
+                getUserByPrincipal(principal).setAvatar("avatar.png");
+                userRepository.save(getUserByPrincipal(principal));
+            }
         }
+
     }
 
     public boolean isAvatarExist(User user) {

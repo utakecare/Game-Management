@@ -11,8 +11,8 @@ import java.time.LocalTime;
 @Data
 public class Game {
     @Id
-    @GeneratedValue
-    private Long id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long gameId;
     private LocalDate date;
     private LocalTime time;
     private int selfRate;
