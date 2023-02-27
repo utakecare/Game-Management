@@ -4,31 +4,22 @@
     <hr>
     <div style="text-align: center">
         <h1>${user.name}</h1>
-        <#if avatarExist>
             <form method="post" enctype="multipart/form-data" class="">
                 <div>
                     <label>
+                        <#if avatarExist>
                         <img src="/storage/${user.getAvatar()}"
                              style="border:2px solid black; border-radius: 20px" height="240"  alt="">
+                        <#else>
+                        <img src="/static/images/avatar.png"
+                             style="border:0 solid black; border-radius: 20px" height="120" alt="">
+                        </#if>
                         <input type="file" name="file" hidden>
                         <input type="hidden" name="_csrf" value="${_csrf.token}"/>
                     </label>
                 </div>
                     <button type="submit" style="width: 10%" class="btn btn-dark">Добавить</button>
             </form>
-             <#else>
-                 <form method="post" enctype="multipart/form-data" class="">
-                     <div>
-                 <label>
-                     <img src="/static/images/avatar.png"
-                          style="border:0 solid black; border-radius: 20px" height="120" alt="">
-                     <input type="file" name="file" hidden>
-                     <input type="hidden" name="_csrf" value="${_csrf.token}"/>
-                 </label>
-                     </div>
-                 <button type="submit"  class="btn btn-dark">Добавить</button>
-                 </form>
-        </#if>
         <br>
         <h3>WinRate: ${winRate}%</h3>
         <#if user.isAdmin()>
