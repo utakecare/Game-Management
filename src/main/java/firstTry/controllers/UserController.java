@@ -67,6 +67,7 @@ public class UserController {
         model.addAttribute("userByPrincipal", userService.getUserByPrincipal(principal));
         model.addAttribute("games", user.getGames());
         model.addAttribute("avatarExist", userService.isAvatarExist(user));
+        model.addAttribute("userExist", userService.isUserExist(principal));
         return "user-info";
     }
 }
